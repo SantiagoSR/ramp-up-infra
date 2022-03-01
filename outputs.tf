@@ -9,6 +9,3 @@ output "db_host_endpoint" {
 output "name" {
   value = abspath(path.module)
 }
-# output "subnets_id" {
-#     value = module.database.subnets-ids
-# }
