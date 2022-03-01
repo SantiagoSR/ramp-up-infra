@@ -1,0 +1,6 @@
+aws/
+.terraform.lock.hcl
+user-data/script.sh
+terraform.tfstate
+terraform.tfstate.backup
+.pre-commit-config.yaml
