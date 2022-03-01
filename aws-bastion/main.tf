@@ -32,7 +32,8 @@ resource "null_resource" "connection_bastion" {
   connection {
     type     = "ssh"
     user     = "ubuntu"
-    private_key = file("/home/slow-time/RampUp-devops-santiagosantacruzr.pem") 
+    #private_key = file("/home/slow-time/RampUp-devops-santiagosantacruzr.pem") 
+    private_key = file("/vagrant/RampUp-devops-santiagosantacruzr.pem") 
     host     = aws_instance.bastion-host.public_ip
   }
   provisioner "remote-exec" {
@@ -48,22 +49,23 @@ resource "null_resource" "files_to_bastion" {
   connection {
     type     = "ssh"
     user     = "ubuntu"
-    private_key = file("/home/slow-time/RampUp-devops-santiagosantacruzr.pem") 
+    private_key = file("/vagrant/RampUp-devops-santiagosantacruzr.pem") 
     host     = aws_instance.bastion-host.public_ip
   }
 
-  provisioner "file" {
-    source = "/mnt/c/Perficient/RampUp/Iac/new_user_credentials.csv"
-    destination = "/home/ubuntu/new_user_credentials.csv"
-  } 
+  # provisioner "file" {
+  #   source = "/mnt/c/Perficient/RampUp/Iac/new_user_credentials.csv"
+  #   destination = "/home/ubuntu/new_user_credentials.csv"
+  # } 
 
   provisioner "file" {
-    source = "/mnt/c/Perficient/RampUp/.env"
+    #source = "/mnt/c/Perficient/RampUp/.env"
+    source = "/vagrant/.env"
     destination = "/tmp/.env"
   }
 
   provisioner "file" {
-    source = "/mnt/c/Perficient/RampUp/Server_Configuration_managment/ansible_repo"
+    source = "/vagrant/ansible_repo"
     destination = "/tmp/ansible_repo"
   }
 
@@ -77,7 +79,7 @@ resource "null_resource" "move_env" {
   connection {
     type     = "ssh"
     user     = "ubuntu"
-    private_key = file("/home/slow-time/RampUp-devops-santiagosantacruzr.pem") 
+    private_key = file("/vagrant/RampUp-devops-santiagosantacruzr.pem") 
     host     = aws_instance.bastion-host.public_ip
   }
   provisioner "remote-exec" {
