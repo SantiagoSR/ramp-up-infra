@@ -1,6 +1,8 @@
 provider "aws" {
   profile = "default"
   region  = "us-west-1"
+  shared_credentials_file = "/var/lib/jenkins/.aws/credentials"
+  
   default_tags {
     tags = {
       project     = var.instance_project,
