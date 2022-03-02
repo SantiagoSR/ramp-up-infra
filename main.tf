@@ -1,6 +1,6 @@
 provider "aws" {
   region  = "us-west-1"
-  shared_credentials_file = "/var/lib/jenkins/.aws/credentials"
+  shared_credentials_files = "/var/lib/jenkins/.aws/credentials"
 
   default_tags {
     tags = {
