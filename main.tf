@@ -9,6 +9,13 @@ provider "aws" {
     }
   }
 }
+terraform {
+  backend "s3" {
+    bucket = "ramp-up-devops-psl"
+    key    = "santiago.santacruzr/terraform_jenkins"
+    region = "us-west-1"
+  }
+}
 
 data "aws_ami" "ubuntu" {
   most_recent = true
