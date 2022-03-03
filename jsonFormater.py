@@ -12,7 +12,6 @@ def readFile(fileName):
         return new_list
 
 ips = readFile("ips.json")
-db = readFile("db_host.json")
 
 file_path = 'inventory'
 sys.stdout = open(file_path, "w")
@@ -21,9 +20,3 @@ print(ips[0])
 print(ips[1])
 print("[db-host]")
 print(ips[1])
-
-print(db)
-# file_path = '/mnt/c/Perficient/RampUp/CI_CD/.env'
-# sys.stdout = open(file_path, "w")
-# print("DB_HOST="+file_path)
-#echo $DB_HOST>>archivo.txt
