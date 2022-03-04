@@ -1,11 +1,19 @@
 provider "aws" {
-  profile = "default"
   region  = "us-west-1"
+  shared_credentials_files = ["/var/lib/jenkins/.aws/credentials"]
+
   default_tags {
     tags = {
       project     = var.instance_project,
       responsible = var.instance_responsile
     }
+  }
+}
+terraform {
+  backend "s3" {
+    bucket = "ramp-up-devops-psl"
+    key    = "santiago.santacruzr/terraform_jenkins"
+    region = "us-west-1"
   }
 }
 
