@@ -7,7 +7,7 @@ output "db_host_endpoint" {
 }
 
 output "bastion_ip" {
-  value = module.bastion_host.bastion_host_private_ip
+  value = module.bastion_host.bastion_host_public_ip
 }
 output "path" {
   value = abspath(path.module)
