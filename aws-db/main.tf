@@ -33,4 +33,7 @@ resource "aws_db_instance" "movie-db-terraform" {
     responsible = var.instance_project,
     project = var.instance_responsile
   }
+  depends_on = [
+    aws_db_subnet_group.db_subnet_terraform
+  ]
 }
