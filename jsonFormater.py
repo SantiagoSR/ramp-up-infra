@@ -15,7 +15,8 @@ ips = readFile("ips.json")
 
 file_path = 'inventory'
 sys.stdout = open(file_path, "w")
-print("[web_severs]")
+print("")
+print("[web_servers]")
 print(ips[0])
 print(ips[1])
 print("[db_host]")
